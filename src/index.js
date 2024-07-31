@@ -2,6 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
 const routes = require("./routes/routes");
+const authRoutes = require('./routes/authRoutes')
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes
 app.use("/api", routes);
+app.use("/api", authRoutes);
 
 // Error handling
 app.use((req, res, next) => {
