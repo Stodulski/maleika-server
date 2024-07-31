@@ -28,9 +28,9 @@ exports.createAudio = async (req, res) => {
 
 exports.editAudioCode = async (req, res) => {
     const { id } = req.params;
-    const { codigo } = req.body;
+    const { archivo } = req.body;
     try {
-        const audio = await Audio.findByIdAndUpdate(id, { archivo: codigo });
+        const audio = await Audio.findByIdAndUpdate(id, { archivo });
         if (!audio) {
             return res.status(404).json({ message: "Audio not found" });
         }
