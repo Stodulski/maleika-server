@@ -30,7 +30,7 @@ exports.editAudioCode = async (req, res) => {
     const { id } = req.params;
     const { codigo } = req.body;
     try {
-        const audio = await Audio.findByIdAndUpdate(id, { codigo });
+        const audio = await Audio.findByIdAndUpdate(id, { archivo: codigo });
         if (!audio) {
             return res.status(404).json({ message: "Audio not found" });
         }
